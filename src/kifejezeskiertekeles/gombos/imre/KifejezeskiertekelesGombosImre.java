@@ -1,21 +1,59 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package kifejezeskiertekeles.gombos.imre;
 
-/**
- *
- * @author Imi
- */
-public class KifejezeskiertekelesGombosImre {
 
-    /**
-     * @param args the command line arguments
-     */
+import java.util.ArrayList;
+import java.util.Stack;
+public class KifejezeskiertekelesGombosImre {
+ static char[] kifejezestomb=new char[3];
+    final static char[] operatorok =new char[4];
+
     public static void main(String[] args) {
-        // TODO code application logic here
+      String kifejezes="teszt";
+        operatorok[0]='+';
+        operatorok[1]='-';
+        operatorok[2]='/';
+        operatorok[3]='*';
+
+
+
+        System.out.println(kifejezesekbenkeres('-'));
+
+
+
+
+        Stack<Character> verem = new Stack<Character>();
+
+        for (int i = 0; i <kifejezes.length(); i++)
+        {
+            char akt=kifejezes.charAt(i);
+            if (akt=='(')
+            {
+                verem.push(kifejezes.charAt(i));
+            }
+            else if(!(kifejezesekbenkeres(akt)))
+            {
+            }
+
+        }
     }
+    private static boolean kifejezesekbenkeres(char akt)
+    {
+        boolean szam=false;
+        for (int i = 0; i<operatorok.length; i++)
+        {
+            if (!(akt==operatorok[i]))
+            {
+                szam=true;
+            }
+            else
+            {
+                szam=false;
+            }
+        }
+        return szam;
+    }
+
+    
     
 }
